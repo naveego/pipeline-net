@@ -17,7 +17,7 @@ namespace Naveego.Pipeline.Publishers
 
         DiscoverShapesResponse Shapes(DiscoverPublisherShapesRequest request);
 
-        PublishResponse Publish(ShapeDefinition shape, IDataTransport dataTransport);
+        PublishResponse Publish(PublishRequest request, IDataTransport dataTransport);
 
         void Dispose(DisposeRequest request);
         

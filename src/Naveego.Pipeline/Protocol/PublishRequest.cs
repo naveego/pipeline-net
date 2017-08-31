@@ -9,7 +9,5 @@ namespace Naveego.Pipeline.Protocol
     public class PublishRequest
     {
         public ShapeDefinition Shape { get; set; }
-
-        public string PublishToAddress { get; set; }
     }
 }
