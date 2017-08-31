@@ -15,6 +15,7 @@ namespace Naveego.Pipeline
 
         public string[] Keys { get; set; }
 
+        public IList<PropertyDefinition> Properties { get; set; }
         
     }
 }
