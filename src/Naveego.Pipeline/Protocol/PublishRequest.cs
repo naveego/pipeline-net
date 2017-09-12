@@ -10,9 +10,8 @@ namespace Naveego.Pipeline.Protocol
     public class PublishRequest
     {
         
-        public PublisherInstance PublisherInstance { get; set; }
+        public string ShapeName { get; set; }
 
-        public ShapeDefinition Shape { get; set; }
-
+        public string PublishToAddress { get; set; }
     }
 }
