@@ -46,6 +46,7 @@
     <Compile Include="DataPointAction.cs" />
     <Compile Include="PropertyDefinition.cs" />
     <Compile Include="Protocol\DiscoverSubscriberShapesRequest.cs" />
+    <Compile Include="Protocol\JPropertyAttribute.cs" />
     <Compile Include="Protocol\ReceiveDataPointRequest.cs" />
     <Compile Include="Protocol\ReceiveDataPointResponse.cs" />
     <Compile Include="Publishers\AbstractPublisher.cs" />
