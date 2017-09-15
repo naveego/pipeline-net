@@ -10,7 +10,7 @@ namespace Naveego.Pipeline.Protocol
 {
     public class DiscoverPublisherShapesRequest
     {
-        [JsonProperty("instance")]
-        public PublisherInstance PublisherInstance { get; set; }
+        [JsonProperty("settings")]
+        public Dictionary<string, object> Settings { get; set; }
     }
 }
