@@ -48,7 +48,14 @@
     <Compile Include="DataPoint.cs" />
     <Compile Include="DataPointAction.cs" />
     <Compile Include="Hosting\Adapters\DataTransportAdapter.cs" />
+    <Compile Include="Hosting\Clients\TcpClient.cs" />
     <Compile Include="Hosting\Host.cs" />
+    <Compile Include="Hosting\Clients\NamedPipesClient.cs" />
+    <Compile Include="Hosting\Protocol\JsonRequest.cs" />
+    <Compile Include="Hosting\Protocol\JsonResponse.cs" />
+    <Compile Include="Hosting\Protocol\JsonRpcException.cs" />
+    <Compile Include="Hosting\Servers\TcpServer.cs" />
+    <Compile Include="Hosting\Servers\NamedPipesServer.cs" />
     <Compile Include="PropertyDefinition.cs" />
     <Compile Include="Protocol\DiscoverSubscriberShapesRequest.cs" />
     <Compile Include="Protocol\JPropertyAttribute.cs" />
