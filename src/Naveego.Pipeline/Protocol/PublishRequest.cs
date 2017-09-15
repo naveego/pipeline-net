@@ -11,11 +11,8 @@ namespace Naveego.Pipeline.Protocol
     public class PublishRequest
     {
         
-        [JsonProperty("instance")]
-        public PublisherInstance PublisherInstance { get; set; }
+        public string ShapeName { get; set; }
 
-        [JsonProperty("shape")]
-        public ShapeDefinition Shape { get; set; }
-
+        public string PublishToAddress { get; set; }
     }
 }

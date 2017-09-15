@@ -8,6 +8,7 @@ using Naveego.Pipeline.Publishers.Transport;
 
 namespace Naveego.Pipeline.Publishers
 {
+
     public abstract class AbstractPublisher : IPublisher
     {
         public virtual void Dispose(DisposeRequest request) { }

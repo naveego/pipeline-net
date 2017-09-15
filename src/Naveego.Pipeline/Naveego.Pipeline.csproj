@@ -42,11 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hosting\Adapters\PublisherAdapter.cs" />
+    <Compile Include="Hosting\Adapters\SubscriberAdapter.cs" />
+    <Compile Include="Hosting\Client.cs" />
     <Compile Include="DataPoint.cs" />
     <Compile Include="DataPointAction.cs" />
+    <Compile Include="Hosting\Adapters\DataTransportAdapter.cs" />
+    <Compile Include="Hosting\Host.cs" />
     <Compile Include="PropertyDefinition.cs" />
     <Compile Include="Protocol\DiscoverSubscriberShapesRequest.cs" />
     <Compile Include="Protocol\JPropertyAttribute.cs" />
+    <Compile Include="Protocol\DisposeResponse.cs" />
     <Compile Include="Protocol\ReceiveDataPointRequest.cs" />
     <Compile Include="Protocol\ReceiveDataPointResponse.cs" />
     <Compile Include="Publishers\AbstractPublisher.cs" />
@@ -62,6 +68,8 @@
     <Compile Include="Protocol\PublishRequest.cs" />
     <Compile Include="Publishers\PublisherInstance.cs" />
     <Compile Include="Publishers\Transport\IDataTransport.cs" />
+    <Compile Include="Hosting\Registry.cs" />
+    <Compile Include="Hosting\Server.cs" />
     <Compile Include="ShapeDefinition.cs" />
     <Compile Include="Subscribers\AbstractSubscriber.cs" />
     <Compile Include="Subscribers\ISubscriber.cs" />
@@ -70,6 +78,7 @@
     <Compile Include="Subscribers\SubscriberInstance.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
