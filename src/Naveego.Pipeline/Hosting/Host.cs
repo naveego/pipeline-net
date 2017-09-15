@@ -53,6 +53,8 @@ namespace Naveego.Pipeline.Hosting
             }
             var registry = new Registry(_log);
 
+            var serverFactory = new ServerFactory();
+
             if(_subscriber != null)
             {
                 var subscriber = new SubscriberAdapter(_subscriber, _log);
@@ -65,11 +67,11 @@ namespace Naveego.Pipeline.Hosting
                 registry.Register("Publisher", publisher);
             }
 
-            _server = new Server(registry, _log);
+            _server = serverFactory.CreateServer(_address, registry, _log);
 
             return Task.Run(async () =>
             {
-                await _server.ListenAndServe(_address, token);
+                await _server.ListenAndServe(token);
                 _log("Stopped.");
             }, token);
         }

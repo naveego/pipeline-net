@@ -7,6 +7,10 @@ using System.Reflection;
 
 namespace Naveego.Pipeline.Hosting
 {
+
+    internal delegate JsonResponse JsonRpcHandler(JsonRequest request);
+
+
     /// <summary>
     /// Registry provides bindings between service instances and 
     /// JSON-RPC method names.
@@ -19,7 +23,7 @@ namespace Naveego.Pipeline.Hosting
 
         public Registry(Action<string> log)
         {
-            _log = HostUtils.DefaultLog("Registry", log);
+            _log = HostUtils.DefaultLog("Registry:", log);
         }
 
         /// <summary>
