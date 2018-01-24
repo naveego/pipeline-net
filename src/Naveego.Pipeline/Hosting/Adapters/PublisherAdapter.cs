@@ -1,5 +1,7 @@
-﻿using Naveego.Pipeline.Protocol;
+﻿using Naveego.Pipeline;
+using Naveego.Pipeline.Protocol;
 using Naveego.Pipeline.Publishers;
+using Naveego.Pipeline.Logging;
 using System;
 
 namespace Naveego.Pipeline.Hosting
@@ -21,7 +23,17 @@ namespace Naveego.Pipeline.Hosting
         }
 
         public InitializeResponse Init(InitializePublisherRequest request)
-            => _publisher.Init(request);
+        { 
+            if(_publisher is AbstractPublisher)
+            {
+                (_publisher as AbstractPublisher).Logger = new CombinedLogger(
+                    LoggerFactory.NewFileLogger(),
+                    LoggerFactory.NewDataFlowLogger(
+                        request.Meta.GetValueIfPresent("tenant"),
+                        request.Meta.GetValueIfPresent("logUrl")));
+            }
+            return _publisher.Init(request);
+        }
 
         public TestConnectionResponse TestConnection(TestConnectionRequest request)
             => _publisher.TestConnection(request);

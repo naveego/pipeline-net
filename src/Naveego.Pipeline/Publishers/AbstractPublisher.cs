@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Naveego.Pipeline.Logging;
 using Naveego.Pipeline.Protocol;
 using Naveego.Pipeline.Publishers.Transport;
 
@@ -11,6 +12,14 @@ namespace Naveego.Pipeline.Publishers
 
     public abstract class AbstractPublisher : IPublisher
     {
+        private ILogger _logger = NullLogger.Instance;
+
+        public ILogger Logger
+        {
+            get { return _logger; }
+            set { _logger = value; }
+        }
+
         public virtual void Dispose(DisposeRequest request) { }
         
         public virtual InitializeResponse Init(InitializePublisherRequest request)
@@ -34,5 +43,6 @@ namespace Naveego.Pipeline.Publishers
                 Message = "Not Implemented"
             };
         }
+
     }
 }

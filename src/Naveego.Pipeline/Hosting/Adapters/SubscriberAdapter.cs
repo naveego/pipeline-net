@@ -1,4 +1,6 @@
-﻿using Naveego.Pipeline.Protocol;
+﻿using Naveego.Pipeline;
+using Naveego.Pipeline.Logging;
+using Naveego.Pipeline.Protocol;
 using Naveego.Pipeline.Subscribers;
 using System;
 
@@ -19,7 +21,18 @@ namespace Naveego.Pipeline.Hosting
         }
 
         public InitializeResponse Init(InitializeSubscriberRequest request)
-            => _subscriber.Init(request);
+        {
+            if (_subscriber is AbstractSubscriber)
+            {
+                (_subscriber as AbstractSubscriber).Logger = new CombinedLogger(
+                    LoggerFactory.NewFileLogger(),
+                    LoggerFactory.NewDataFlowLogger(
+                        request.Meta.GetValueIfPresent("tenant"),
+                        request.Meta.GetValueIfPresent("logUrl")));
+            }
+
+            return _subscriber.Init(request);
+        }
 
         public TestConnectionResponse TestConnection(TestConnectionRequest request)
             => _subscriber.TestConnection(request);

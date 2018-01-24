@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DictionaryExtensions.cs" />
     <Compile Include="Hosting\Adapters\PublisherAdapter.cs" />
     <Compile Include="Hosting\Adapters\SubscriberAdapter.cs" />
     <Compile Include="Hosting\Client.cs" />
@@ -56,6 +57,15 @@
     <Compile Include="Hosting\Protocol\JsonRpcException.cs" />
     <Compile Include="Hosting\Servers\TcpServer.cs" />
     <Compile Include="Hosting\Servers\NamedPipesServer.cs" />
+    <Compile Include="Logging\AbstractLogger.cs" />
+    <Compile Include="Logging\CombinedLogger.cs" />
+    <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Logging\DataFlowLogger.cs" />
+    <Compile Include="Logging\FileLogger.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\LoggerFactory.cs" />
+    <Compile Include="Logging\LogLevels.cs" />
+    <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="PropertyDefinition.cs" />
     <Compile Include="Protocol\DiscoverSubscriberShapesRequest.cs" />
     <Compile Include="Protocol\JPropertyAttribute.cs" />

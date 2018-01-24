@@ -9,6 +9,8 @@ namespace Naveego.Pipeline.Protocol
 {
     public class InitializeSubscriberRequest
     {
+        public Dictionary<string, string> Meta { get; set; }
+
         public SubscriberInstance SubscriberInstance { get; set; }
     }
 }

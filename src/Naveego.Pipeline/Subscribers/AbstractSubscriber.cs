@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Naveego.Pipeline.Logging;
 using Naveego.Pipeline.Protocol;
 
 namespace Naveego.Pipeline.Subscribers
 {
     public abstract class AbstractSubscriber : ISubscriber
     {
+        private ILogger _logger = NullLogger.Instance;
+
+        public ILogger Logger
+        {
+            get { return _logger; }
+            set { _logger = value; }
+        }
+
         public virtual void Dispose(DisposeRequest request) { }
-        
 
         public virtual InitializeResponse Init(InitializeSubscriberRequest request)
         {
