@@ -7,6 +7,21 @@ using System.IO;
 
 namespace Naveego.Pipeline.Logging
 {
+    public static class FileLogger
+    {
+        public static ILogger Create(string filePath = "publisher.log")
+        {
+            try
+            {
+                var fs = System.IO.File.OpenWrite(filePath);
+                return new StreamLogger(fs);
+            }
+            catch { }
+
+            return NullLogger.Instance;
+        }
+    }
+
     public class StreamLogger : AbstractLogger
     {
         private readonly Stream _output;
@@ -30,5 +45,6 @@ namespace Naveego.Pipeline.Logging
             _output.Flush();
         }
 
+        
     }
 }

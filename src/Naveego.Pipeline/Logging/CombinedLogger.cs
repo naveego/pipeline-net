@@ -34,37 +34,37 @@ namespace Naveego.Pipeline.Logging
 
         public void LogErrorFormat(string message, params object[] args)
         {
-            ForEachLogger(l => LogErrorFormat(message, args));
+            ForEachLogger(l => l.LogErrorFormat(message, args));
         }
 
         public void LogErrorFormat(Exception ex, string message, params object[] args)
         {
-            ForEachLogger(l => LogErrorFormat(ex, message, args));
+            ForEachLogger(l => l.LogErrorFormat(ex, message, args));
         }
 
         public void LogInfo(string message)
         {
-            ForEachLogger(l => LogInfoFormat(message));
+            ForEachLogger(l => l.LogInfoFormat(message));
         }
 
         public void LogInfoFormat(string message, params object[] args)
         {
-            ForEachLogger(l => LogInfoFormat(message, args));
+            ForEachLogger(l => l.LogInfoFormat(message, args));
         }
 
         public void LogWarn(string message, Exception ex = null)
         {
-            ForEachLogger(l => LogWarn(message, ex));
+            ForEachLogger(l => l.LogWarn(message, ex));
         }
 
         public void LogWarnFormat(string message, params object[] args)
         {
-            ForEachLogger(l => LogWarnFormat(message, args));
+            ForEachLogger(l => l.LogWarnFormat(message, args));
         }
 
         public void LogWarnFormat(Exception ex, string message, params object[] args)
         {
-            ForEachLogger(l => LogWarnFormat(ex, message, args));
+            ForEachLogger(l => l.LogWarnFormat(ex, message, args));
         }
 
         private void ForEachLogger(Action<ILogger> action)
