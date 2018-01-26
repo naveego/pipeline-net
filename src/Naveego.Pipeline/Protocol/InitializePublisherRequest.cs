@@ -9,8 +9,22 @@ namespace Naveego.Pipeline.Protocol
 {
     public class InitializePublisherRequest
     {
-        public Dictionary<string, string> Meta { get; set; }
+        private Dictionary<string, string> _meta;
 
-        public Dictionary<string,object> Settings { get; set; }
+        public Dictionary<string, string> Meta
+        {
+            get
+            {
+                if (_meta == null)
+                {
+                    _meta = new Dictionary<string, string>();
+                }
+
+                return _meta;
+            }
+            set { _meta = value; }
+        }
+
+        public Dictionary<string, object> Settings { get; set; }
     }
 }

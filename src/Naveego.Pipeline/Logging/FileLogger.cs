@@ -7,18 +7,26 @@ using System.IO;
 
 namespace Naveego.Pipeline.Logging
 {
-    public static class FileLogger
+    public class FileLogger : AbstractLogger
     {
-        public static ILogger Create(string filePath = "publisher.log")
+        private readonly string _filePath;
+
+        public FileLogger(string filePath = "publisher.log")
+        {
+            _filePath = filePath;
+        }
+
+        public override void LogMessage(LogLevel level, string message, Exception ex = null)
         {
             try
             {
-                var fs = System.IO.File.OpenWrite(filePath);
-                return new StreamLogger(fs);
+                File.AppendAllText(_filePath, string.Format("[{0}] {1} {2}\r\n", DateTime.Now, level.Label, message));
+                if (ex != null)
+                {
+                    File.AppendAllText(_filePath, ex.ToString());
+                }
             }
             catch { }
-
-            return NullLogger.Instance;
         }
     }
 
@@ -44,7 +52,5 @@ namespace Naveego.Pipeline.Logging
             _writer.Flush();
             _output.Flush();
         }
-
-        
     }
 }

@@ -27,7 +27,7 @@ namespace Naveego.Pipeline.Hosting
             if(_publisher is AbstractPublisher)
             {
                 (_publisher as AbstractPublisher).Logger = new CombinedLogger(
-                    FileLogger.Create(),
+                    new FileLogger(),
                     new DataFlowLogger(
                         request.Meta.GetValueIfPresent("tenant"),
                         request.Meta.GetValueIfPresent("logUrl")));

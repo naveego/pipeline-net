@@ -25,7 +25,7 @@ namespace Naveego.Pipeline.Hosting
             if (_subscriber is AbstractSubscriber)
             {
                 (_subscriber as AbstractSubscriber).Logger = new CombinedLogger(
-                    FileLogger.Create(),
+                    new FileLogger(),
                     new DataFlowLogger(
                         request.Meta.GetValueIfPresent("tenant"),
                         request.Meta.GetValueIfPresent("logUrl")));
